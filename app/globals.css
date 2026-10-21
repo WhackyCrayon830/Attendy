@@ -118,10 +118,20 @@
 }
 
 @layer base {
+  html {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100dvh;
   }
 }

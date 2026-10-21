@@ -6,6 +6,7 @@ services:
       target: development
     ports:
       - "3000:3000"
+      - "127.0.0.1:4983:4983"
     init: true
     volumes:
       - .:/app
@@ -13,6 +14,8 @@ services:
       - next_build:/app/.next
     environment:
       NODE_ENV: development
+      AUTH_URL: http://localhost:3000
+      AUTH_SECRET: attendy-local-development-secret-change-before-production
       WATCHPACK_POLLING: "true"
       DATABASE_URL: postgres://attendy:attendy_dev_password@db:5432/attendy
     depends_on:

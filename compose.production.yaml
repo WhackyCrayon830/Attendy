@@ -11,5 +11,7 @@ services:
     init: true
     environment:
       NODE_ENV: production
+      AUTH_URL: ${AUTH_URL:?Set AUTH_URL to the public URL of your app}
+      AUTH_SECRET: ${AUTH_SECRET:?Set AUTH_SECRET in your environment or .env file}
       DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in your environment or .env file}
     restart: unless-stopped
