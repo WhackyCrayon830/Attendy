@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: attendy-app
+    ports:
+      - "3000:3000"
+    init: true
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      - next_build:/app/.next
+    environment:
+      NODE_ENV: development
+      WATCH PACK_POLLING: "true"
+
+volumes:
+  node_modules:
+  next_build:
