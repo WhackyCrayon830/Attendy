@@ -2,13 +2,13 @@ FROM node:22-bookworm-slim AS base
 
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install --include=optional
 
 FROM base AS development
 
 COPY . .
 EXPOSE 3000
-CMD ["sh", "-c", "npm ci --include=optional && npm run dev -- --hostname 0.0.0.0"]
+CMD ["sh", "-c", "npm install --include=optional && npm run dev -- --hostname 0.0.0.0"]
 
 FROM base AS builder
 
