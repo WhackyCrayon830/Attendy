@@ -8,7 +8,7 @@ FROM base AS development
 
 COPY . .
 EXPOSE 3000
-CMD ["sh", "-c", "npm ci && npm run dev -- --hostname 0.0.0.0"]
+CMD ["sh", "-c", "npm ci --include=optional && npm run dev -- --hostname 0.0.0.0"]
 
 FROM base AS builder
 
